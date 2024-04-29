@@ -1,80 +1,27 @@
-# Home Assistant Community Add-on: Node-RED
+# Home Assistant Community Add-on: AutoDomo Based NodeRed
 
-[![GitHub Release][releases-shield]][releases]
-![Project Stage][project-stage-shield]
-[![License][license-shield]](LICENSE.md)
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
-
-[![Github Actions][github-actions-shield]][github-actions]
-![Project Maintenance][maintenance-shield]
-[![GitHub Activity][commits-shield]][commits]
-
-[![Discord][discord-shield]][discord]
-[![Community Forum][forum-shield]][forum]
 
 [![Sponsor Frenck via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
 
-[![Support Frenck on Patreon][patreon-shield]][patreon]
 
-Flow-based programming for the Internet of Things.
 
-![Node-RED in the Home Assistant Frontend](images/screenshot.png)
+Autodomo Addons Baseado no NodeRed
+
+![AutoDomo Addons](images/screenshot.png)
 
 ## About
 
-[Node-RED][nodered] is a programming tool for wiring together hardware devices,
-APIs and online services in new and interesting ways.
+[AutoDomo][autodomo] é uma ferramenta que utiliza o NodeRed por baixo e facilitação a integração como todo o sistema AutoDomo.
 
-It provides a browser-based editor that makes it easy to wire together flows
-using the wide range of nodes in the palette that can be deployed to its
-runtime in a single click.
-
-[:books: Read the full add-on documentation][docs]
 
 ## Support
 
-Got questions?
+Entre com contatos com os canais no whatsapp e telegram.
 
 You have several options to get them answered:
 
-- The [Home Assistant Community Add-ons Discord chat server][discord] for add-on
-  support and feature requests.
-- The [Home Assistant Discord chat server][discord-ha] for general Home
-  Assistant discussions and questions.
-- The Home Assistant [Community Forum][forum].
-- Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
-- The [Node-RED documentation][nodered-docs]
 
-You could also [open an issue here][issue] GitHub.
-
-## Contributing
-
-This is an active open-source project. We are always open to people who want to
-use the code or contribute to it.
-
-We have set up a separate document containing our
-[contribution guidelines](.github/CONTRIBUTING.md).
-
-Thank you for being involved! :heart_eyes:
-
-## Authors & contributors
-
-The original setup of this repository is by [Franck Nijhof][frenck].
-
-For a full list of all authors and contributors,
-check [the contributor's page][contributors].
-
-## We have got some Home Assistant add-ons for you
-
-Want some more functionality to your Home Assistant instance?
-
-We have created multiple add-ons for Home Assistant. For a full list, check out
-our [GitHub Repository][repository].
 
 ## License
 
@@ -117,13 +64,13 @@ SOFTWARE.
 [frenck]: https://github.com/frenck
 [github-actions-shield]: https://github.com/hassio-addons/addon-node-red/workflows/CI/badge.svg
 [github-actions]: https://github.com/hassio-addons/addon-node-red/actions
-[github-sponsors-shield]: https://frenck.dev/wp-content/uploads/2019/12/github_sponsor.png
-[github-sponsors]: https://github.com/sponsors/frenck
+[github-sponsors-shield]: https://avatars.githubusercontent.com/u/8157997?s=100&u=34ea7081121915f7fbc3115d0117f2b818eb04db&v=4
+[github-sponsors]: https://github.com/eltonssilva
 [i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [issue]: https://github.com/hassio-addons/addon-node-red/issues
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-node-red.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
-[nodered]: https://nodered.org
+[autodomo]: https://www.autodomo.com.br
 [nodered-docs]: https://nodered.org/docs
 [patreon-shield]: https://frenck.dev/wp-content/uploads/2019/12/patreon.png
 [patreon]: https://www.patreon.com/frenck
