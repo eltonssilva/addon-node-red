@@ -36,7 +36,19 @@
     "node-red-node-twitter": "1.2.0",
     "@node-red-contrib-themes/theme-collection": "3.1.11",
     "line-by-line": "0.1.6",
-    "source-map-support": "0.5.21"
+    "source-map-support": "0.5.21",
+
+    "@flowfuse/node-red-dashboard": "~1.7.1",
+    "node-red-contrib-bcrypt": "~0.1.6",
+    "node-red-contrib-credentials": "~0.2.3",
+    "node-red-contrib-cx-mqtt-one": "~0.1.1",
+    "node-red-contrib-firebase": "~1.1.1",
+    "node-red-contrib-float": "~1.0.3",
+    "node-red-contrib-image-output": "~0.6.4",
+    "node-red-contrib-md5": "~1.0.4",
+    "node-red-contrib-qrcode-generator": "~0.4.0",
+    "node-red-node-mysql": "~2.0.0",
+    "node-red-node-sqlite": "~1.1.0"
   },
   "engines": {
     "node": ">=16"
