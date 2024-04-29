@@ -14,7 +14,7 @@ config.debugUseColors = false;
 config.flowFile = "flows.json";
 config.nodesDir = "/config/nodes";
 config.uiHost = "127.0.0.1";
-config.uiPort = 46836;
+config.uiPort = 46837;
 config.userDir = "/config/";
 
 //Set path for HTTP_Nodes to be served from avoiding lua auth
