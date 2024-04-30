@@ -40,14 +40,6 @@
     "env": []
   },
   {
-    "id": "b877b44643b9596b",
-    "type": "tab",
-    "label": "Limpar Dispositivos",
-    "disabled": false,
-    "info": "Limpa todos os dispositivos do aplicativos.\n\nOs dispositivos não são limpados apaneas apagados",
-    "env": []
-  },
-  {
     "id": "b3e227b45cdb32ea",
     "type": "tab",
     "label": "AutoDomo",
@@ -238,9 +230,9 @@
     "type": "ui-group",
     "name": "device_list",
     "page": "5ccdbdf523abb93b",
-    "width": "10",
+    "width": "12",
     "height": "1",
-    "order": -1,
+    "order": 1,
     "showTitle": false,
     "className": "",
     "visible": "true",
@@ -366,6 +358,19 @@
     "type": "sqlitedb",
     "db": "/homeassistant/autodomo.db",
     "mode": "RWC"
+  },
+  {
+    "id": "29636dffefc2a433",
+    "type": "ui-group",
+    "name": "limpar_dispositivo",
+    "page": "5ccdbdf523abb93b",
+    "width": "12",
+    "height": "1",
+    "order": 2,
+    "showTitle": false,
+    "className": "",
+    "visible": "true",
+    "disabled": "false"
   },
   {
     "id": "d942631cad74a7e7",
@@ -1506,7 +1511,7 @@
     "ui": "17f0c29053c20d2e",
     "events": "all",
     "x": 500,
-    "y": 720,
+    "y": 700,
     "wires": [
       []
     ]
@@ -1672,6 +1677,52 @@
     "wires": []
   },
   {
+    "id": "251eb852741e5db2",
+    "type": "ui-template",
+    "z": "bd155946fc3867cf",
+    "group": "3ebd4505c5a6d063",
+    "page": "",
+    "ui": "",
+    "name": "",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "head": "",
+    "format": "<template>\n  <v-container>\n    <v-row align=\"center\" justify=\"center\">\n        \n\n      <v-col cols=\"auto\">\n\n        <v-btn class=\"ma-2\" color=\"red\" @click=\"send({payload: 'limparcon1'})\">\n        <v-icon icon=\"mdi-delete-circle-outline\" start>\n        </v-icon>\n            Limpar\n        </v-btn>\n\n      </v-col>\n\n    </v-row>\n  </v-container>\n</template>\n\n\n<style>\n    /* define any styles here - supports raw CSS */\n    .my-class {\n        color: red;\n    }\n</style>",
+    "storeOutMessages": true,
+    "passthru": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 280,
+    "y": 780,
+    "wires": [
+      [
+        "7cb75ab0d1d54479"
+      ]
+    ]
+  },
+  {
+    "id": "7cb75ab0d1d54479",
+    "type": "function",
+    "z": "bd155946fc3867cf",
+    "name": "function 100",
+    "func": "msg.payload = \"\";\nflow.set(\"mensagem\", \"\");\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 630,
+    "y": 780,
+    "wires": [
+      [
+        "e708e1e4787595ce"
+      ]
+    ]
+  },
+  {
     "id": "6dc8724316f10d12",
     "type": "function",
     "z": "f879cf30d22aec46",
@@ -1702,7 +1753,7 @@
     "type": "function",
     "z": "f879cf30d22aec46",
     "name": "function 2",
-    "func": "const tipo_device = msg.payload;\nflow.set(\"tipo_device_infravermelho\", tipo_device);\n\nconst payload_tag_tv = [\n{value: \"power\", label: \"Power\"},\n{ value: \"play\", label: \"Play\" },\n{ value: \"menu\", label: \"Menu\" },\n{ value: \"input\", label: \"Input\" },\n{ value: \"exit\", label: \"Exit\" },\n{ value: \"up\", label: \"UP (Seta para Cima)\" },\n{ value: \"down\", label: \"Down (Seta para baixo)\" },\n{ value: \"lefy\", label: \"Down (Seta para Esquerda)\" },\n{ value: \"right\", label: \"Down (Seta para Direita)\" },\n{ value: \"ok\", label: \"OK (Comando Confirma)\" },\n{ value: \"chup\", label: \"Canal Mais 1\" },\n{ value: \"chdown\", label: \"Canal Menos 1\" },\n{ value: \"volup\", label: \"Aumenta Volume um nivel\" },\n{ value: \"volup10\", label: \"Aumenta Volume 10 niveis\" },\n{ value: \"voldown\", label: \"Diminui Volume um nivel\" },\n{ value: \"voldown10\", label: \"Diminui Volume 10 niveis\" },\n{ value: \"mute\", label: \"Mudo\" },\n{ value: \"1\", label: \"Numero 1\" },\n{ value: \"2\", label: \"Numero 2\" },\n{ value: \"3\", label: \"Numero 3\" },\n{ value: \"4\", label: \"Numero 4\" },\n{ value: \"5\", label: \"Numero 5\" },\n{ value: \"6\", label: \"Numero 6\" },\n{ value: \"7\", label: \"Numero 7\" },\n{ value: \"8\", label: \"Numero 8\" },\n{ value: \"9\", label: \"Numero 9\" },\n{ value: \"0\", label: \"Numero 0\" },\n{ value: \".\", label: \"Numero .\" },\n{ value: \"netflix\", label: \"Netflix\" },\n{ value: \"disneyplus\", label: \"Disney Plus\" },\n{ value: \"hbomax\", label: \"Hbomax\" },\n{ value: \"primevideo\", label: \"Prime Video\" },\n{ value: \"starplus\", label: \"Star Plus\" },\n{ value: \"appletv\", label: \"Applet TV\" },\n{ value: \"telecine\", label: \"TeleCine\" },\n{ value: \"globoplay\", label: \"Globo Play\" },\n{ value: \"youtube\", label: \"Youtube\" },\n{ value: \"twitch\", label: \"Twitch\" },\n{ value: \"open\", label: \"Comando Abrir (USando para mover modulo de TV/Projetor)\" },\n{ value: \"stop\", label: \"Comando Parar (USando para mover modulo de TV/Projetor)\" },\n{ value: \"close\", label: \"Comando Fechar (USando para mover modulo de TV/Projetor)\" }\n];\n\nconst payload_tag_ac_sp = [\n    {value: \"off\", label: \"Desligar\"},\n    { value: \"on_12\", label: \"Ligar/Seta na temperatura 12\" },\n    { value: \"on_13\", label: \"Ligar/Seta na temperatura 13\" },\n    { value: \"on_14\", label: \"Ligar/Seta na temperatura 14\" },\n    { value: \"on_15\", label: \"Ligar/Seta na temperatura 15\" },\n    { value: \"on_16\", label: \"Ligar/Seta na temperatura 16\" },\n    { value: \"on_17\", label: \"Ligar/Seta na temperatura 17\" },\n    { value: \"on_18\", label: \"Ligar/Seta na temperatura 18\"},\n    { value: \"on_19\", label: \"Ligar/Seta na temperatura 19\" },\n    { value: \"on_20\", label: \"Ligar/Seta na temperatura 20\" },\n    { value: \"on_21\", label: \"Ligar/Seta na temperatura 21\" },\n    { value: \"on_22\", label: \"Ligar/Seta na temperatura 22\" },\n    { value: \"on_23\", label: \"Ligar/Seta na temperatura 23\" },\n    { value: \"on_24\", label: \"Ligar/Seta na temperatura 24\" },\n    { value: \"on_25\", label: \"Ligar/Seta na temperatura 25\" },\n    { value: \"on_26\", label: \"Ligar/Seta na temperatura 26\" },\n    { value: \"on_27\", label: \"Ligar/Seta na temperatura 27\" },\n    { value: \"on_28\", label: \"Ligar/Seta na temperatura 28\" },\n    { value: \"on_29\", label: \"Ligar/Seta na temperatura 29\" },\n    { value: \"on_30\", label: \"Ligar/Seta na temperatura 30\" },\n];\n\nif(tipo_device == \"arcondicionadosimplificado\"){\n\n    msg.options = payload_tag_ac_sp;\n\n}else if(tipo_device == \"arcondicionadoextendido\"){\n    \n    msg.options = [];\n\n    msg.class = {\n    display: \"none\"\n    }\n    \n}else if(tipo_device == \"TV\"){\n    \n    msg.options = payload_tag_tv;\n}\n\nreturn msg;",
+    "func": "const tipo_device = msg.payload;\nflow.set(\"tipo_device_infravermelho\", tipo_device);\n\nconst payload_tag_tv = [\n{value: \"power\", label: \"Power\"},\n{ value: \"play\", label: \"Play\" },\n{ value: \"menu\", label: \"Menu\" },\n{ value: \"input\", label: \"Input\" },\n{ value: \"exit\", label: \"Exit\" },\n{ value: \"up\", label: \"UP (Seta para Cima)\" },\n{ value: \"down\", label: \"Down (Seta para baixo)\" },\n{ value: \"left\", label: \"Down (Seta para Esquerda)\" },\n{ value: \"right\", label: \"Down (Seta para Direita)\" },\n{ value: \"ok\", label: \"OK (Comando Confirma)\" },\n{ value: \"chup\", label: \"Canal Mais 1\" },\n{ value: \"chdown\", label: \"Canal Menos 1\" },\n{ value: \"volup\", label: \"Aumenta Volume um nivel\" },\n{ value: \"volup10\", label: \"Aumenta Volume 10 niveis\" },\n{ value: \"voldown\", label: \"Diminui Volume um nivel\" },\n{ value: \"voldown10\", label: \"Diminui Volume 10 niveis\" },\n{ value: \"mute\", label: \"Mudo\" },\n{ value: \"1\", label: \"Numero 1\" },\n{ value: \"2\", label: \"Numero 2\" },\n{ value: \"3\", label: \"Numero 3\" },\n{ value: \"4\", label: \"Numero 4\" },\n{ value: \"5\", label: \"Numero 5\" },\n{ value: \"6\", label: \"Numero 6\" },\n{ value: \"7\", label: \"Numero 7\" },\n{ value: \"8\", label: \"Numero 8\" },\n{ value: \"9\", label: \"Numero 9\" },\n{ value: \"0\", label: \"Numero 0\" },\n{ value: \".\", label: \"Numero .\" },\n{ value: \"netflix\", label: \"Netflix\" },\n{ value: \"disneyplus\", label: \"Disney Plus\" },\n{ value: \"hbomax\", label: \"Hbomax\" },\n{ value: \"primevideo\", label: \"Prime Video\" },\n{ value: \"starplus\", label: \"Star Plus\" },\n{ value: \"appletv\", label: \"Applet TV\" },\n{ value: \"telecine\", label: \"TeleCine\" },\n{ value: \"globoplay\", label: \"Globo Play\" },\n{ value: \"youtube\", label: \"Youtube\" },\n{ value: \"twitch\", label: \"Twitch\" },\n{ value: \"open\", label: \"Comando Abrir (USando para mover modulo de TV/Projetor)\" },\n{ value: \"stop\", label: \"Comando Parar (USando para mover modulo de TV/Projetor)\" },\n{ value: \"close\", label: \"Comando Fechar (USando para mover modulo de TV/Projetor)\" }\n];\n\nconst payload_tag_ac_sp = [\n    {value: \"off\", label: \"Desligar\"},\n    { value: \"on_12\", label: \"Ligar/Seta na temperatura 12\" },\n    { value: \"on_13\", label: \"Ligar/Seta na temperatura 13\" },\n    { value: \"on_14\", label: \"Ligar/Seta na temperatura 14\" },\n    { value: \"on_15\", label: \"Ligar/Seta na temperatura 15\" },\n    { value: \"on_16\", label: \"Ligar/Seta na temperatura 16\" },\n    { value: \"on_17\", label: \"Ligar/Seta na temperatura 17\" },\n    { value: \"on_18\", label: \"Ligar/Seta na temperatura 18\"},\n    { value: \"on_19\", label: \"Ligar/Seta na temperatura 19\" },\n    { value: \"on_20\", label: \"Ligar/Seta na temperatura 20\" },\n    { value: \"on_21\", label: \"Ligar/Seta na temperatura 21\" },\n    { value: \"on_22\", label: \"Ligar/Seta na temperatura 22\" },\n    { value: \"on_23\", label: \"Ligar/Seta na temperatura 23\" },\n    { value: \"on_24\", label: \"Ligar/Seta na temperatura 24\" },\n    { value: \"on_25\", label: \"Ligar/Seta na temperatura 25\" },\n    { value: \"on_26\", label: \"Ligar/Seta na temperatura 26\" },\n    { value: \"on_27\", label: \"Ligar/Seta na temperatura 27\" },\n    { value: \"on_28\", label: \"Ligar/Seta na temperatura 28\" },\n    { value: \"on_29\", label: \"Ligar/Seta na temperatura 29\" },\n    { value: \"on_30\", label: \"Ligar/Seta na temperatura 30\" },\n];\n\nif(tipo_device == \"arcondicionadosimplificado\"){\n\n    msg.options = payload_tag_ac_sp;\n\n}else if(tipo_device == \"arcondicionadoextendido\"){\n    \n    msg.options = [];\n\n    msg.class = {\n    display: \"none\"\n    }\n    \n}else if(tipo_device == \"TV\"){\n    \n    msg.options = payload_tag_tv;\n}\n\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,
@@ -3904,9 +3955,38 @@
     ]
   },
   {
+    "id": "c0c19d5152d4741d",
+    "type": "ui-button",
+    "z": "e9473a462f630fe6",
+    "group": "29636dffefc2a433",
+    "name": "",
+    "label": "Remover Todos os Dispositivos do APP AutoDomo",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "mdi:cellphone-remove",
+    "iconPosition": "left",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 810,
+    "y": 960,
+    "wires": [
+      [
+        "25bc46f092b78f74"
+      ]
+    ]
+  },
+  {
     "id": "25bc46f092b78f74",
     "type": "function",
-    "z": "b877b44643b9596b",
+    "z": "e9473a462f630fe6",
     "name": "Fuction Remover",
     "func": "const hash_ad = global.get(\"hash_ad\");\n\nif (hash_ad.length >= 32){\n\n    msg.childpath = \"/lais/\" + hash_ad + \"/device/\";\n    return msg;\n\n}\n\n\n\n",
     "outputs": 1,
@@ -3915,8 +3995,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 330,
-    "y": 100,
+    "x": 1050,
+    "y": 780,
     "wires": [
       [
         "5c372385fd962133"
@@ -3926,15 +4006,15 @@
   {
     "id": "5c372385fd962133",
     "type": "firebase modify",
-    "z": "b877b44643b9596b",
+    "z": "e9473a462f630fe6",
     "name": "Remover Device",
     "firebaseconfig": "ec3b45f2cddba51a",
     "childpath": "msg.childpath",
     "method": "remove",
     "value": "msg.payload",
     "priority": "msg.priority",
-    "x": 580,
-    "y": 100,
+    "x": 1240,
+    "y": 780,
     "wires": [
       []
     ]
@@ -3942,7 +4022,7 @@
   {
     "id": "e1c75e65974d490f",
     "type": "inject",
-    "z": "b877b44643b9596b",
+    "z": "e9473a462f630fe6",
     "name": "Limpar",
     "props": [
       {
@@ -3960,8 +4040,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 130,
-    "y": 100,
+    "x": 170,
+    "y": 800,
     "wires": [
       [
         "25bc46f092b78f74"
@@ -3971,11 +4051,11 @@
   {
     "id": "eb3beb4941f3d27a",
     "type": "comment",
-    "z": "b877b44643b9596b",
+    "z": "e9473a462f630fe6",
     "name": "Remove Dispositivos",
     "info": "Remove os Dispositivos do aplicativos.\n\nOs dispositvos não seram apagados no Home Assistant.\n\nQuandos o Status de casa dispositivo alterar esse novamente irar aparecer no APP AutoDomo",
-    "x": 160,
-    "y": 60,
+    "x": 200,
+    "y": 760,
     "wires": []
   },
   {
