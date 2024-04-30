@@ -26,7 +26,7 @@ server {
     {{ end }}
 
     location /endpoint/ {
-        proxy_pass http://backend/dashboard;
+        proxy_pass http://backend/dashboard/;
     }
 
     location / {
