@@ -5,8 +5,8 @@ server {
     include /etc/nginx/includes/proxy_params.conf;
 
     location / {
-        allow   172.30.32.2;
-        deny    all;
+       # allow   172.30.32.2;
+       # deny    all;
 
         # Redirecionamento para /dashboard
         rewrite ^/$ /dashboard redirect;
