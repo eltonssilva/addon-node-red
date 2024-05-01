@@ -1,10 +1,10 @@
 ---
 name: AutoDomo
-version: "1.0.12"
+version: "1.0.13"
 slug: autodomo
 description: AutoDomo Addon Base NodeRed
 url: https://github.com/eltonssilva/addon-node-red
-codenotary: codenotary@frenck.dev
+codenotary: eltonss.eng@gmail.com
 ingress: true
 ingress_port: 0
 ingress_stream: true
@@ -32,6 +32,7 @@ map:
   - share:rw
   - ssl
 options:
+  autodomo_ui_port: 46836
   theme: default
   http_node:
     username: ""
@@ -46,6 +47,7 @@ options:
   npm_packages: []
   init_commands: []
 schema:
+  autodomo_ui_port: int
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   credential_secret: password?
   theme: list(default|aurora|cobalt2|dark|dracula|espresso-libre|github-dark|github-dark-default|github-dark-dimmed|midnight-red|monoindustrial|monokai|monokai-dimmed|noctis|oceanic-next|oled|one-dark-pro|one-dark-pro-darker|solarized-dark|solarized-light|tokyo-night|tokyo-night-light|tokyo-night-storm|totallyinformation|zenburn)?
