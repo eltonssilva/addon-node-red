@@ -4,10 +4,10 @@ server {
     include /etc/nginx/includes/server_params.conf;
     include /etc/nginx/includes/proxy_params.conf;
 
-    location / {
+    location /dashboard/ {
         allow   172.30.32.2;
         deny    all;
 
-        proxy_pass http://backend/dashboard/;
+        proxy_pass http://backend;
     }
 }
