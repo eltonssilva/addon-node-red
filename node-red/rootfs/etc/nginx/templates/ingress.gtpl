@@ -9,8 +9,8 @@ server {
        # deny    all;
 
         # Redirecionamento para /dashboard
-        rewrite ^/$ /dashboard redirect;
+        #rewrite ^/$ /dashboard redirect;
 
-        proxy_pass http://backend;
+        proxy_pass http://backend/dashboard/;
     }
 }
