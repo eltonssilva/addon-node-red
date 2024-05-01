@@ -1,6 +1,6 @@
 ---
 name: AutoDomo
-version: "1.0.13"
+version: "1.0.15"
 slug: autodomo
 description: AutoDomo Addon Base NodeRed
 url: https://github.com/eltonssilva/addon-node-red
@@ -32,7 +32,6 @@ map:
   - share:rw
   - ssl
 options:
-  autodomo_ui_port: 46836
   theme: default
   http_node:
     username: ""
@@ -47,25 +46,24 @@ options:
   npm_packages: []
   init_commands: []
 schema:
-  autodomo_ui_port: int
-  log_level: list(trace|debug|info|notice|warning|error|fatal)?
-  credential_secret: password?
-  theme: list(default|aurora|cobalt2|dark|dracula|espresso-libre|github-dark|github-dark-default|github-dark-dimmed|midnight-red|monoindustrial|monokai|monokai-dimmed|noctis|oceanic-next|oled|one-dark-pro|one-dark-pro-darker|solarized-dark|solarized-light|tokyo-night|tokyo-night-light|tokyo-night-storm|totallyinformation|zenburn)?
-  http_node:
-    username: str
-    password: password
-  http_static:
-    username: str
-    password: password
-  ssl: bool
-  certfile: str
-  keyfile: str
-  system_packages:
-    - str
-  npm_packages:
-    - str
-  init_commands:
-    - str
+  # log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  # credential_secret: password?
+  # theme: list(default|aurora|cobalt2|dark|dracula|espresso-libre|github-dark|github-dark-default|github-dark-dimmed|midnight-red|monoindustrial|monokai|monokai-dimmed|noctis|oceanic-next|oled|one-dark-pro|one-dark-pro-darker|solarized-dark|solarized-light|tokyo-night|tokyo-night-light|tokyo-night-storm|totallyinformation|zenburn)?
+  # http_node:
+  #   username: str
+  #   password: password
+  # http_static:
+  #   username: str
+  #   password: password
+  # ssl: bool
+  # certfile: str
+  # keyfile: str
+  # system_packages:
+  #   - str
+  # npm_packages:
+  #   - str
+  # init_commands:
+  #   - str
   leave_front_door_open: bool?
   safe_mode: bool?
-  max_old_space_size: int?
+  # max_old_space_size: int?
