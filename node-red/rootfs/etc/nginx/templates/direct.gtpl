@@ -29,7 +29,7 @@ server {
         proxy_pass http://backend;
     }
 
-    location /nodered/ {
+    location / {
       #  {{ if not .leave_front_door_open }}
       #  auth_request /authentication;
       #  auth_request_set $auth_status $upstream_status;
