@@ -10,7 +10,7 @@ server {
         allow    all;
 
         # Redirecionamento para /dashboard
-        rewrite ^/$ /endpoint/dashboard/ redirect;
+        rewrite ^ /endpoint/dashboard/ redirect;
 
         proxy_pass http://backend/;
     }
